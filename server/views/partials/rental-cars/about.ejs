@@ -1,0 +1,144 @@
+<script>
+   var myApp = angular.module('myApp', []);
+   myApp.factory('myData', function(){
+       return { name: '' };
+   });
+   //HATCHBACK
+   myApp.controller('hatchbackCtrl', function($scope, $http) {
+     $http.get("http://localhost:9090/cars").then(function (response) {
+         $scope.myData = response.data.cars;
+     });
+   });
+   //SEDAN
+   myApp.controller('sedanCtrl', function($scope, $http) {
+     $http.get("http://localhost:9090/cars").then(function (response) {
+         $scope.myData = response.data.cars;
+     });
+   });
+   //SEDAN
+   myApp.controller('listCtrl', function($scope, $http) {
+     $http.get("http://localhost:9090/cars").then(function (response) {
+         $scope.myData = response.data.cars;
+     });
+   });
+   //SUV
+   myApp.controller('suvCtrl', function($scope, $http) {
+     $http.get("http://localhost:9090/cars").then(function (response) {
+         $scope.myData = response.data.cars;
+     });
+   });
+</script>
+<!-- About Section -->
+<div id="rental-about-section" ng-app="myApp">
+   <div class="container">
+      <div class="section-title text-center center">
+         <h2>Start your journey</h2>
+         <div class="clearfix"></div>
+         <p>A transformational car ownership program that allows you to share your car and save up to 70% on your new car EMI</p>
+      </div>
+      <div class="row">
+         <div id="tabs-list" class="col-md-8">
+            <div id="tabs-section" class="container">
+               <ul class="nav nav-tabs">
+                  <li class="active"><a data-toggle="tab" href="#hatchback">HATCHBACK</a></li>
+                  <li><a data-toggle="tab" href="#sedan">SEDAN</a></li>
+                  <li><a data-toggle="tab" href="#suv">SUV</a></li>
+               </ul>
+               <div  id="tabs-data"   class="tab-content">
+                  <div id="hatchback" class="tab-pane fade in active">
+                     <h3>HATCHBACK</h3>
+                     <div ng-controller="hatchbackCtrl">
+                       <h3>{{myData[0].type}}</h3>
+                        <table>
+                           <tr ng-repeat="x in myData" ng-if="x.type=='hatchback'">
+
+                              <td><img data-ng-src="data:image/png;base64,{{x.image}}" data-err-src="images/png/avatar.png" style="width:90px;height:60px;"/></td>
+                              <td><strong>{{ x.name }}</strong></td>
+                              <td><strong>{{ x.seater }}</strong></td>
+                              <td><strong>{{ x.rateWeekdays }}</strong></td>
+                              <td><strong>{{ x.rateWeekend }}</strong></td>
+
+                           </tr>
+                        </table>
+                     </div>
+                  </div>
+                  <div id="sedan" class="tab-pane fade">
+                     <h3><strong>SEDAN</strong></h3>
+                     <div ng-controller="sedanCtrl">
+                        <table>
+                           <tr ng-repeat="x in myData" ng-if="x.type=='sedan'">
+                               <td><img data-ng-src="data:image/png;base64,{{x.image}}" data-err-src="images/png/avatar.png" style="width:70px;height:30px;"/></td>
+                             <td><strong>{{ x.name }}</strong></td>
+                             <td><strong>{{ x.seater }}</strong></td>
+                             <td><strong>{{ x.rateWeekdays }}</strong></td>
+                             <td><strong>{{ x.rateWeekend }}</strong></td>
+                           </tr>
+                        </table>
+                     </div>
+                  </div>
+                  <div id="suv" class="tab-pane fade">
+                     <h3><strong>SUV<strong></h3>
+                    <div ng-controller="suvCtrl">
+                       <table>
+                          <tr ng-repeat="x in myData" ng-if="x.type=='suv'">
+                              <td><img data-ng-src="data:image/png;base64,{{x.image}}" data-err-src="images/png/avatar.png" style="width:70px;height:30px;"/></td>
+                            <td><strong>{{ x.name }}</strong></td>
+                            <td><strong>{{ x.seater }}</strong></td>
+                            <td><strong>{{ x.rateWeekdays }}</strong></td>
+                            <td><strong>{{ x.rateWeekend }}</strong></td>
+                          </tr>
+                       </table>
+                    </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-4">
+            <div id= "calculatorDiv" class="about-text">
+               <h4>Tariff Calculator</h4>
+
+               <p>Select a Car<a href="#services-section" class="page-scroll" id="showAddress">Locate Me</a></p>
+
+               <div ng-controller="listCtrl">
+                  <select id="selectedCarValue"  ng-model="selectedCar">
+                     <option value = "0" label = "Please Select"></option>
+                     <option ng-repeat="x in myData" value="{{x._id}}">{{x.name}}</option>
+                  </select>
+               </div>
+               <div id= "slideDiv" class="slidecontainer">
+                  <input type="range" min="1" max="24" value="4" class="slider" id="myRange">
+                <p>Duration: <span id="demo"></span> hours</p>
+               </div>
+               <div id="longone"></div>
+                <center id="centerdata">
+                <div id="box">
+                    <h5>Hatchback</h5>
+                    <center id="boxText">50 kms free</center>
+                    <center id="boxRate">₹ 700</center>
+                </div>
+                <div id="box">
+                    <h5>Sedan</h5>
+                    <center id="boxText">70 kms free</center>
+                    <center id="boxRate">₹ 1,600</center>
+                </div>
+                <div id="box">
+                    <h5>SUV</h5>
+                    <center id="boxText">100 kms free</center>
+                    <center id="boxRate">₹ 2,900</center>
+                </div>
+                <hr id="hrbox">
+                <h3>FEATURES</h3>
+                <img id="featureImages" src="https://dl.dropboxusercontent.com/s/t55ntd2jurdr1e3/fuel.png?dl=0" alt="" height="48" width="48">
+                <img id="featureImages"src="https://dl.dropboxusercontent.com/s/bjkigjtcp43lcm0/car-insurance.png?dl=0" alt="" height="48" width="48">
+                <img id="featureImages"src="https://dl.dropboxusercontent.com/s/u9q8vfiqrsxleol/invoice.png?dl=0" alt="" height="48" width="48">
+                </center>
+
+            </div>
+
+         </div>
+      </div>
+
+   </div>
+
+
+</div>

@@ -1,0 +1,46 @@
+<!-- Sign-In Section -->
+
+<div id="signin-section" class="text-center">
+  <div class="container">
+    <div class="col-md-8 col-md-offset-2">
+      <h3>Sign In</h3>
+      <form form method="POST" action="/users/login">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="email" name = "email" class="form-control" placeholder="Email" required="required">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" name = "password" class="form-control" placeholder="Password" required="required">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-default">Sign In</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="col-md-8 col-md-offset-2">
+    <h3>Reset Password</h3>
+    <form form method="POST" action="/users/5a43efd3b097022c47e6f896">
+      <div class="col-md-6">
+        <div class="form-group">
+          <input type="password" name = "password" class="form-control" placeholder="Password" required="required">
+          <input type='hidden' name='_method' value='PATCH'>
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-default">SignUp</button>
+    </form>
+  </div>
+</div>
+</div>
+</div>

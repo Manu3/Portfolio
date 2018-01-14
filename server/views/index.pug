@@ -1,0 +1,12 @@
+html
+	head
+		title= 'Users List'
+
+	body
+		h1= 'Users List'
+	table
+		for user in userList
+			tr
+				td
+					<p #{user.address}> </p> #{user.name}
+					td= user.address

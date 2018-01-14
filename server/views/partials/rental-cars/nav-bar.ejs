@@ -1,0 +1,53 @@
+<!-- Navigation
+    ==========================================-->
+<nav id="menu" class="navbar navbar-default  navbar-fixed-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand" href="/home"><i class="fa fa-car"></i> Chattel<strong></strong></a> </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#home" class="page-scroll">Home</a></li>
+        <li><a href="/landing" class="page-scroll">Login</a> </li>
+        <li><a href="#services-section" class="page-scroll">Services</a></li>
+        <li><a href="#works-section" class="page-scroll">Offers</a></li>
+        <li><a href="#signin-section" data-toggle="modal" data-target="#signInModal">Sign In</a></li>
+        <li><a href="#contact-section" class="page-scroll">Contact</a></li>
+        <li><a href="#team-section" class="page-scroll">Team</a></li>
+        <li><a href="#about-section" class="page-scroll">About</a></li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+<!-- Modal -->
+<div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 class="modal-title" id="exampleModalLabel">Sign In</h3>
+    </div>
+    <div class="modal-body">
+      <form form method="POST" action="/users/login">
+   <div class="form-group">
+          <label for="recipient-name" class="col-form-label">Email:</label>
+          <input type="email" name = "email" class="form-control"   required="required" placeholder="Email">
+        </div>
+   <div class="form-group">
+          <label for="recipient-name" class="col-form-label">Password:</label>
+          <input type="password" name = "password" class="form-control"  required="required" placeholder="Password">
+        </div>
+  <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-default">Sign In</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+</div>
